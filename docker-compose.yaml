@@ -12,7 +12,7 @@ services:
             - MYSQL_USER=appbuser
             - MYSQL_PASSWORD=appbpass
      bookmanagementservice:
-          image:bookmangimg
+          image: bookmangimg
           hostname: bookmanagement
           ports:
             - 7001:8080
