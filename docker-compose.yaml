@@ -13,9 +13,9 @@ services:
             - MYSQL_PASSWORD=appbpass
      bookmanagementservice:
           image:bookmangimg
+          hostname: bookmanagement
           ports:
             - 7001:8080
-          hostname: bookmanagement
           environment:
             - mysqlHost:dbserver
             - mysqlPort:3306
