@@ -17,11 +17,11 @@ services:
           ports:
             - 7001:8080
           environment:
-            - mysqlHost:dbserver
-            - mysqlPort:3306
-            - mysqlDatabase:book
-            - mysqlUser:appbuser
-            - mysqlPass:appbpass
+            - mysqlHost=dbserver
+            - mysqlPort=3306
+            - mysqlDatabase=book
+            - mysqlUser=appbuser
+            - mysqlPass=appbpass
           depends_on:
             - database
      bookstoreservice:
