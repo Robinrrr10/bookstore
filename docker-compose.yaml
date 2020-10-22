@@ -23,7 +23,7 @@ services:
             - mysqlUser=appbuser
             - mysqlPass=appbpass
           links:
-            - database
+            - dbserver
      bookstoreservice:
           image: bookstimg
           container_name: bookstore
@@ -32,4 +32,4 @@ services:
           environment:
             - bookmanagementhost=http://bookmanagement:7001
           links:
-            - bookmanagementservice
+            - bookmanagement
