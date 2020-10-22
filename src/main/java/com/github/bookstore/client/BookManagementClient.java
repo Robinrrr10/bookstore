@@ -60,7 +60,7 @@ public class BookManagementClient {
 	
 	public BookResponse getAllBooks() {
 		CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-		String url = host + "/bookmanagement/v1/book/allbooks";
+		String url = "http://" + host + "/bookmanagement/v1/book/allbooks";
 		System.out.println("Request url: " + url);
 		HttpGet httpGet  = new HttpGet(url);
 		CloseableHttpResponse closeableHttpResponse = null;
