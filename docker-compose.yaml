@@ -4,32 +4,29 @@ services:
           image: mysql
           ports:
             - 3306:3306
-            - 33060:33060
-          container_name: dbserver
+          container_name: mysqlserver
           environment:
             - MYSQL_DATABASE=book
             - MYSQL_ROOT_PASSWORD=123root
-            - MYSQL_USER=appbuser
-            - MYSQL_PASSWORD=appbpass
      bookmanagementservice:
-          image: bookmangimg
+          image: bookmanagement
           container_name: bookmanagement
           ports:
             - 7001:8080
           environment:
-            - mysqlHost=dbserver
+            - mysqlHost=mysqlserver
             - mysqlPort=3306
             - mysqlDatabase=book
-            - mysqlUser=appbuser
-            - mysqlPass=appbpass
+            - mysqlUser=root
+            - mysqlPass=123root
           links:
-            - dbserver
+            - mysqlserver
      bookstoreservice:
-          image: bookstimg
+          image: bookstore
           container_name: bookstore
           ports:
             - 7002:8080
           environment:
-            - bookmanagementhost=http://bookmanagement:7001
+            - bookmanagementhost=bookmanagement:8080
           links:
             - bookmanagement
