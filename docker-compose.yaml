@@ -20,7 +20,7 @@ services:
             - mysqlUser=root
             - mysqlPass=123root
           links:
-            - mysqlserver
+            - database
      bookstoreservice:
           image: bookstore
           container_name: bookstore
@@ -29,4 +29,4 @@ services:
           environment:
             - bookmanagementhost=bookmanagement:8080
           links:
-            - bookmanagement
+            - bookmanagementservice
