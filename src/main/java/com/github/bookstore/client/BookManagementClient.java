@@ -27,13 +27,13 @@ public class BookManagementClient {
 	public BookManagementClient() {
 		host = System.getenv("bookmanagementhost");
 		if (host == null || host.equals("")) {
-			host = "http://localhost:8080";
+			host = "localhost:8080";
 		}
 	}
 
 	public BookResponse createBook(BookDetail bookDetail) {
 		CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-		String url = host + "/bookmanagement/v1/book/create";
+		String url = "http://" + host + "/bookmanagement/v1/book/create";
 		CloseableHttpResponse closeableHttpResponse = null;
 		 int statusCode = 0;
 		 String body = null;
@@ -60,7 +60,7 @@ public class BookManagementClient {
 	
 	public BookResponse getAllBooks() {
 		CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-		String url = host + "/bookmanagement/v1/book/allbooks";
+		String url = "http://" + host + "/bookmanagement/v1/book/allbooks";
 		System.out.println("Request url: " + url);
 		HttpGet httpGet  = new HttpGet(url);
 		CloseableHttpResponse closeableHttpResponse = null;
