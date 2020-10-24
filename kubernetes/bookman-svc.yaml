@@ -8,6 +8,7 @@ metadata:
 spec:
      ports:
           - port: 7001
+            targetPort: 8080
      type: ClusterIP
      selector:
           app: bookman-app

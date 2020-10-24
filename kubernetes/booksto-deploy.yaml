@@ -18,9 +18,9 @@ spec:
           spec:
                containers:
                      - name: bookstore-container
-                       image: robinrrr10/bookstor
+                       image: robinrrr10/bookstore
                        env:
                             - name: bookmanagementhost
-                              value: "bookmanagement-container"
+                              value: "bookman-svc:7001"
                        ports:
                             - containerPort: 8080

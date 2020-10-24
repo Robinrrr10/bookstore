@@ -8,7 +8,9 @@ metadata:
 spec:
      type: NodePort
      ports:
-          - port: 7002
+          - nodePort: 31001
+            port: 8080
+            targetPort: 8080
      selector:
           app: booksto-app
           tier: frontend

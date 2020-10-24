@@ -17,7 +17,7 @@ spec:
                     tier: backend
           spec:
                containers:
-                    - name: mysql_container
+                    - name: mysql-container
                       image: mysql
                       env:
                            - name: MYSQL_DATABASE
