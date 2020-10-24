@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: booksto-deploy
+     labels:
+          app: booksto-app    
+spec:
+     replicas: 2
+     selector:
+          matchLabels:
+               app: booksto-app
+               tier: frontend
+     template:
+          metadata:
+               labels:
+                    app: booksto-app
+                    tier: frontend
+          spec:
+               containers:
+                     - name: bookstore-container
+                       image: robinrrr10/bookstor
+                       env:
+                            - name: bookmanagementhost
+                              value: "bookmanagement-container"
+                       ports:
+                            - containerPort: 8080

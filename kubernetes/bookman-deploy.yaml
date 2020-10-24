@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: bookman-deploy
+     labels:
+          app: bookman-app
+spec:
+     replicas: 3
+     selector:
+          matchLables:
+               app: bookman-app
+               tier: backend
+     template:
+          metadata:
+               labels:
+                    app: bookman-app
+                    tier: backend          
+          spec:
+               containers:
+                    - name: bookmanagement-container
+                      image: robinrrr10/bookmanagement
+                      env:
+                           - name: mysqlHost
+                             value: "mysql_container"
+                           - name: mysqlPort
+                             value: "3306"
+                           - name: mysqlDatabase
+                             value: "book"
+                           - name: mysqlUser
+                             value: "root"
+                           - name: mysqlPass
+                             value: "123root"
+                      ports:
+                           - containerPorts: 8080

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: mysql-deploy
+     labels:
+          app: mysql-db
+spec:
+     replicas: 1
+     selector:
+          matchLabels:
+               app: mysql-db
+               tier: backend
+     template:
+          metadata:
+               labels:
+                    app: mysql-db
+                    tier: backend
+          spec:
+               containers:
+                    - name: mysql_container
+                      image: mysql
+                      env:
+                           - name: MYSQL_DATABASE
+                             value: "book"
+                           - name: MYSQL_ROOT_PASSWORD
+                             value: "123root"
+                      ports:
+                           - containerPort: 3306
