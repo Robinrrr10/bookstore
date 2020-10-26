@@ -26,3 +26,12 @@ spec:
                              value: "123root"
                       ports:
                            - containerPort: 3306
+                      volumeMounts: 
+                           - mountPath: /var/lib/mysql
+                             name: db-vol
+               nodeSelector:
+                    kubernetes.io/hostname: k8.worker.one
+               volumes:
+                    - name: db-vol
+                      hostPath:
+                           path: /var/lib/mysql
